@@ -5,6 +5,8 @@
 You will be able to describe playing cards using *hmtrump* package.
 **This package needs LuaLaTeX**.
 
+sample.tex is sample file.
+
 ## How to use?
 
 1. Install NKD04 Playing Card's Index font
@@ -19,6 +21,10 @@ You will be able to describe playing cards using *hmtrump* package.
 hmtrump.pdf is manual, written in Japanese.
 
 ## 日本語でok
+
+トランプのルールを TeX で執筆する人に向けて作ったパッケージです。
+トランプのカードの記号を手軽に出力することができます。
+sample.tex がサンプルファイルになっています。
 
 hmtrump.pdf がマニュアルです。ご一読ください。
 
