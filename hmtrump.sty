@@ -1,0 +1,132 @@
+%
+% This is `hmtrump.sty'
+%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{hmtrump}[2019/12/31 v0.5]
+\RequirePackage{tikz,xcolor,fontspec}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 定義本体
+
+% 色の宣言
+\definecolor{hartsuit}{cmyk}{.14,.94,.22,.27}
+\definecolor{diasuit}{cmyk}{.11,.57,.97,.31}
+\definecolor{clubsuit}{cmyk}{.70,.5,.99,.18}
+\definecolor{spadesuit}{cmyk}{.98,.80,.5,.15}
+
+\definecolor{cardback}{gray}{.95}
+\definecolor{cardborder}{gray}{.2}
+\definecolor{cardtext}{gray}{0}
+
+% \hmtc@strut => 支柱\rule[-0.65em]{0pt}{1.85em}
+% \newcommand{\hmtc@strut}{\rule[-0.65em]{0pt}{1.85em}}
+\newcommand{\hmtc@strut}{\relax}
+
+% 日本語している時対策
+\expandafter\ifx\csname ltjdefcharrange\endcsname\relax\else
+	\ltjdefcharrange{10}{
+		"2660-"2667,%各スート
+		"E000-"E005,%ブランク、（合成用ブランク→不使用）、数字10-13
+		"EDDB-"EDE3,%ジョーカーマーク
+		"2160-"216B,%ローマ数字1-12
+		"E5BC-"E5BE,%ローマ数字12-21
+		"1F0A0-"1F0FF%Unicodeトランプ
+	}
+	\ltjsetparameter{jacharrange={-10}}
+\fi
+
+% \hmtcfont => フォント変更
+\newcommand{\hmtc@trump@font}{NKD04_Playing_Cards_Index}
+\newcommand{\hmtcfont}{\fontspec{\hmtc@trump@font}}
+
+%% \trump{ランク}{スート}
+\tikzset{hmtcscale/.style={scale=0.9}} % 倍率
+\tikzset{hmtrump/.style={hmtcscale,draw=cardborder,fill=cardback,outer sep=0pt,rounded corners}}
+	% hmtrump スタイルを定義し直す（\tikzset を使って上書きする）ことで、カードのスタイルを変更可能。
+
+\newcommand{\trump}[2]{\hmtc@strut\hmtc@trump@{\hmtc@rank@{#1}}{#2}}
+
+\newcommand{\hmtc@rank@}[1]{\ifx#1T{\char"E002}\else#1\fi} % 10
+
+\newcommand{\hmtc@trump@}[2]{%
+	\ifx#2H{%
+		\tikz[baseline=(T.base)]
+		\node[hmtrump,text=hartsuit]
+		(T)at(0,0){\hmtcfont{#1\char"2665}};%
+	}%
+	\else\ifx#2D{%
+		\tikz[baseline=(T.base)]
+		\node[hmtrump,text=diasuit]
+		(T)at(0,0){\hmtcfont{#1\char"2666}};%
+	}%
+	\else\ifx#2C{%
+		\tikz[baseline=(T.base)]
+		\node[hmtrump,text=clubsuit]
+		(T)at(0,0){\hmtcfont{#1\char"2663}};%
+	}%
+	\else\ifx#2S{%
+		\tikz[baseline=(T.base)]
+		\node[hmtrump,text=spadesuit]
+		(T)at(0,0){\hmtcfont{#1\char"2660}};%
+	}%
+	\else{%
+		\tikz[baseline=(T.base)]
+		\node[hmtrump]
+		(T)at(0,0){\hmtcfont{#1}};%
+	}%
+	\fi\fi\fi\fi%
+}
+
+%% \trumpx{ランク}
+\newcommand{\trumpx}[1]{\hmtc@strut\hmtc@trump@{\hmtc@rank@{#1}}{x}}
+
+
+% \hm[S,H,D,C] => それぞれのスートを出力
+\newcommand{\hmH}{\textcolor{hartsuit}{\hmtcfont\char"2665}}
+\newcommand{\hmD}{\textcolor{diasuit}{\hmtcfont\char"2666}}
+\newcommand{\hmC}{\textcolor{clubsuit}{\hmtcfont\char"2663}}
+\newcommand{\hmS}{\textcolor{spadesuit}{\hmtcfont\char"2660}}
+
+% \joker など=> ジョーカー
+\newcommand{\BLACKJOKER}{\trumpx{\char"F5BC}}
+\newcommand{\WHITEJOKER}{\trumpx{\char"F5BD}}
+\newcommand{\REDJOKER}{\trumpx{\char"F5BE}}
+\newcommand{\JOKER}{\BLACKJOKER}
+
+\newcommand{\blackjoker}{\hmtc@joker@base{\char"F5BC}}
+\newcommand{\whitejoker}{\hmtc@joker@base{\char"F5BD}}
+\newcommand{\redjoker}{\hmtc@joker@base{\char"F5BE}}
+\newcommand{\joker}{\blackjoker}
+
+\newcommand{\hmtc@joker@base}[1]{\hmtc@strut{\hmtcfont%
+	\tikz[baseline=(T.base)]\node[hmtrump](T)at(0,0){
+		\parbox{1em}{
+			\fontsize{0.3em}{0}\rule{0pt}{0pt}\hfill\selectfont JOKER\hfill\rule{0pt}{0pt}\\
+			\fontsize{2.33em}{0}\selectfont\rule{0pt}{0pt}\hfill#1\hfill\rule{0pt}{0pt}%
+		}
+	};%
+}}
+
+
+% \trumpblank => 枠
+\newcommand{\trumpblank}[1]{%
+	\rule[-0.65em]{0pt}{1.85em}\tikz[baseline=(T.base)]\node[hmtrump](T)at(0,0){#1};%
+}
+
+% \romanindex => ローマ数字
+\newcounter{hmtc@roman}
+\newcommand{\romanindex}[1]{%
+	\ifnum#1=0\relax%
+		O%
+	\else\ifnum#1<13\relax%
+		\setcounter{hmtc@roman}{"215F}%
+		\addtocounter{hmtc@roman}{#1}%
+		{\hmtcfont\char\value{hmtc@roman}}%
+	\else\ifnum#1>12\relax%
+		\setcounter{hmtc@roman}{"EDCE}%
+		\addtocounter{hmtc@roman}{#1}%
+		{\hmtcfont\char\value{hmtc@roman}}%
+	\fi\fi\fi%
+}
+
+% \tarottrump => タロットの切札
+\newcommand{\tarottrump}[1]{\trumpx{\romanindex{#1}}}
