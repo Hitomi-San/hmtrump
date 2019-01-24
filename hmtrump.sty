@@ -7,7 +7,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 定義本体
 
-% 色の宣言
+%: 色の宣言
 \definecolor{hartsuit}{cmyk}{.14,.94,.22,.27}
 \definecolor{diasuit}{cmyk}{.11,.57,.97,.31}
 \definecolor{clubsuit}{cmyk}{.70,.5,.99,.18}
@@ -21,7 +21,7 @@
 % \newcommand{\hmtc@strut}{\rule[-0.65em]{0pt}{1.85em}}
 \newcommand{\hmtc@strut}{\relax}
 
-% 日本語している時対策
+%: 日本語している時対策
 \expandafter\ifx\csname ltjdefcharrange\endcsname\relax\else
 	\ltjdefcharrange{10}{
 		"2660-"2667,%各スート
@@ -34,11 +34,11 @@
 	\ltjsetparameter{jacharrange={-10}}
 \fi
 
-% \hmtcfont => フォント変更
+%: \hmtcfont => フォント変更
 \newcommand{\hmtc@trump@font}{NKD04_Playing_Cards_Index}
 \newcommand{\hmtcfont}{\fontspec{\hmtc@trump@font}}
 
-%% \trump{ランク}{スート}
+%%: \trump{ランク}{スート}
 \tikzset{hmtcscale/.style={scale=0.9}} % 倍率
 \tikzset{hmtrump/.style={hmtcscale,draw=cardborder,fill=cardback,outer sep=0pt,rounded corners}}
 	% hmtrump スタイルを定義し直す（\tikzset を使って上書きする）ことで、カードのスタイルを変更可能。
@@ -76,17 +76,17 @@
 	\fi\fi\fi\fi%
 }
 
-%% \trumpx{ランク}
+%%: \trumpx{ランク}
 \newcommand{\trumpx}[1]{\hmtc@strut\hmtc@trump@{\hmtc@rank@{#1}}{x}}
 
 
-% \hm[S,H,D,C] => それぞれのスートを出力
+%: \hm[S,H,D,C] => それぞれのスートを出力
 \newcommand{\hmH}{\textcolor{hartsuit}{\hmtcfont\char"2665}}
 \newcommand{\hmD}{\textcolor{diasuit}{\hmtcfont\char"2666}}
 \newcommand{\hmC}{\textcolor{clubsuit}{\hmtcfont\char"2663}}
 \newcommand{\hmS}{\textcolor{spadesuit}{\hmtcfont\char"2660}}
 
-% \joker など=> ジョーカー
+%: \joker など=> ジョーカー
 \newcommand{\BLACKJOKER}{\trumpx{\char"F5BC}}
 \newcommand{\WHITEJOKER}{\trumpx{\char"F5BD}}
 \newcommand{\REDJOKER}{\trumpx{\char"F5BE}}
@@ -107,12 +107,12 @@
 }}
 
 
-% \trumpblank => 枠
+%: \trumpblank => 枠
 \newcommand{\trumpblank}[1]{%
 	\rule[-0.65em]{0pt}{1.85em}\tikz[baseline=(T.base)]\node[hmtrump](T)at(0,0){#1};%
 }
 
-% \romanindex => ローマ数字
+%: \romanindex => ローマ数字
 \newcounter{hmtc@roman}
 \newcommand{\romanindex}[1]{%
 	\ifnum#1=0\relax%
@@ -128,5 +128,5 @@
 	\fi\fi\fi%
 }
 
-% \tarottrump => タロットの切札
+%: \tarottrump => タロットの切札
 \newcommand{\tarottrump}[1]{\trumpx{\romanindex{#1}}}
