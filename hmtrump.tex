@@ -8,7 +8,7 @@
 \renewcommand{\thefootnote}{\textasteriskcentered\arabic{footnote}}
 \title{|hmtrump| Package}
 \author{ひとみさん}
-\date{v0.8 [2019/1/9]}
+\date{v0.9 [2019/2/7]}
 \begin{document}
 \maketitle
 
@@ -206,6 +206,15 @@ NKD04\_Playing\_Cards\_Index を違うフォント名でインストールした
 
 例えば |{\tikzset{hmtcscale/.style={scale=0.6}}\trump 3H}\trump JD| と
 書くと {\tikzset{hmtcscale/.style={scale=0.6}}\trump 3H}\trump JD が出力されます。
+
+\section{その他}
+\begin{itemize}
+\item \LuaLaTeX-ja を利用している場合、|\ltjdefcharrange| 命令を用いて、24番の
+	文字範囲にいくつかの文字を追加し、それらを\textbf{ALchar}として設定します。
+	文字範囲を変更している場合、24番の文字範囲には新しく文字を追加したり、\textbf{JAchar}
+	として設定しないように注意してください。
+\end{itemize}
+	
 
 \section{TO DO}
 以下実装したいと思っていること:

@@ -2,7 +2,7 @@
 % This is `hmtrump.sty'
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{hmtrump}[2019/12/31 v0.5]
+\ProvidesPackage{hmtrump}[2019/02/07 v0.9]
 \RequirePackage{tikz,xcolor,fontspec}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 定義本体
@@ -23,7 +23,7 @@
 
 %: 日本語している時対策
 \expandafter\ifx\csname ltjdefcharrange\endcsname\relax\else
-	\ltjdefcharrange{10}{
+	\ltjdefcharrange{24}{
 		"2660-"2667,%各スート
 		"E000-"E005,%ブランク、（合成用ブランク→不使用）、数字10-13
 		"EDDB-"EDE3,%ジョーカーマーク
@@ -31,7 +31,7 @@
 		"E5BC-"E5BE,%ローマ数字12-21
 		"1F0A0-"1F0FF%Unicodeトランプ
 	}
-	\ltjsetparameter{jacharrange={-10}}
+	\ltjsetparameter{jacharrange={-24}}
 \fi
 
 %: \hmtcfont => フォント変更
