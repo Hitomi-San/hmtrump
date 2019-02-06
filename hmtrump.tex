@@ -21,7 +21,7 @@
 でも使用できます。
 
 \vspace*{5pt}
-\rule{0pt}{0pt}\hfill
+\rule{0pt}{0pt}\hfil
 \begin{minipage}[t]{.45\textwidth}
 \centerline{output}\hrule\vspace*{1pt}\hrule
 \footnotesize
@@ -43,7 +43,7 @@ be used in skat.
 には\trumpblank{愚者}のカードが含まれていますが、
 これは切札ではありません。
 \end{minipage}
-\hfill
+\hfil
 \begin{minipage}[t]{.45\textwidth}
 \centerline{imput}\hrule\vspace*{1pt}\hrule
 \scriptsize\ttfamily
@@ -66,7 +66,7 @@ be used in skat.\\
 |\trumpblank{愚者}| のカードが含まれていますが、これは切札では
 ありません。
 \end{minipage}
-\hfill\rule{0pt}{0pt}
+\hfil\rule{0pt}{0pt}
 \vspace*{5pt}
 
 \section{使い方}
@@ -88,7 +88,7 @@ be used in skat.\\
 \section{提供される命令}
 \begin{table}[tb]
 \centering
-\caption{例\label{eg}}
+\caption{例\label{ie}}
 \begin{tabular}{lc}
 \hline
 \multicolumn{1}{c}{入力/input}&出力/output\\
@@ -120,14 +120,14 @@ be used in skat.\\
 |<ランク>| には通常 |A|、|1| から |9| の整数、|T|、|J|、|C|、|Q|、|K| の
 いずれかが入力されることを想定しています。|T| とすると
 {\fontspec{NKD04_Playing_Cards_Index}{\char"E002}}が出力
-されます。|<スート>| には |S|（\hmS{}）、|H|（\hmH{}）、|D|（\hmD{}）、
-|C|（\hmC{}）|x|（スートの指定なし）のいずれかを指定します。
+されます。|<スート>| には |S|（\hmS）、|H|（\hmH）、|D|（\hmD）、
+|C|（\hmC）|x|（スートの指定なし）のいずれかを指定します。
 
 |\trump{<ランク>}{x}|は|\trumpx{<ランク>}|と書くこともできます。
 
 \subsection{スート出力命令}
-|\hmS|、|\hmH|、|\hmD|、|\hmC| はそれぞれ \hmS{}、 \hmH{}、
-\hmD{}、 \hmC{}を出力します。
+|\hmS|、|\hmH|、|\hmD|、|\hmC| はそれぞれ \hmS、\hmH、
+\hmD、\hmC を出力します。
 
 \subsection{ジョーカー出力命令}
 |\JOKER| や |\joker| で\JOKER や\joker を出力します。
