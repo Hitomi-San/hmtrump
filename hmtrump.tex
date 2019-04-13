@@ -2,13 +2,13 @@
 \usepackage{hmtrump}
 \usepackage{shortvrb,bxtexlogo}
 \usepackage[hidelinks,unicode=true]{hyperref}
-\usepackage{classico,newpxtext,newpxmath,beramono}
+\usepackage{tgheros,newpxtext,newpxmath,beramono}
 \MakeShortVerb{\|}
 \usepackage[jfm_yoko=jlreq,jfm_tate=jlreqv,hiragino-pron]{luatexja-preset}
 \renewcommand{\thefootnote}{\textasteriskcentered\arabic{footnote}}
 \title{|hmtrump| Package}
 \author{ひとみさん}
-\date{v0.9 [2019/2/7]}
+\date{v1.0 [2019/04/14]}
 \begin{document}
 \maketitle
 
@@ -223,7 +223,16 @@ NKD04\_Playing\_Cards\_Index を違うフォント名でインストールした
 	を利用するための機構の実装。
 \item |\trump| 命令に不正なスートの指定子が指定された時にエラーを吐くようにする。
 \item もしかしなくても |\joker| 命令で出力されるカード、若干位置が下がってますね……。
+\item {[2019-04-14 ver.~1.0]} |fontspec| パッケージに対する理解が甘くて、フォントを選択するやり方が若干マズい
+	気がするので、修正したい。
 \end{itemize}
 
+
+\section{Change log}
+\begin{description}
+\item[{[2019-04-14 ver.~1.0]}] |hmtrump.sty| に作者を明記。
+\item[{[2019-04-14 ver.~1.0]}] ドキュメントのサンセリフフォントを変更。
+\item[{[2019-04-14 ver.~1.0]}] ドキュメントのサンセリフフォントを変更。
+\end{description}
 
 \end{document}
