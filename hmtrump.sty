@@ -24,7 +24,7 @@
 \newcommand{\hmtc@strut}{\relax}
 
 %: 日本語している時対策
-\expandafter\ifx\csname ltjdefcharrange\endcsname\relax\else
+\ifx\ltjdefcharrange\@undefined\relax\else
 	\ltjdefcharrange{24}{
 		"2660-"2667,%各スート
 		"E000-"E005,%ブランク、（合成用ブランク→不使用）、数字10-13

@@ -3,23 +3,42 @@
 \usepackage{hmtrump}
 \usepackage{shortvrb,bxtexlogo}
 \usepackage[hidelinks,unicode=true]{hyperref}
-\usepackage{tgheros,newpxtext,newpxmath,beramono}
+\usepackage{tgheros,newpxtext,newpxmath}
+\usepackage[scaled]{beramono}
 \MakeShortVerb{\|}
-\usepackage[jfm_yoko=jlreq,jfm_tate=jlreqv,hiragino-pron]{luatexja-preset}
+\usepackage[jfm_yoko=jlreq,jfm_tate=jlreqv]{luatexja-preset}
 \renewcommand{\thefootnote}{\textasteriskcentered\arabic{footnote}}
 \title{|hmtrump| Package}
 \author{ひとみさん}
-\date{v1.0 [2019/04/14]}
+\date{v1.0c [2019/05/14]}
+
 \begin{document}
 \maketitle
 
-\section{これは何}
-\TeX 文書中で、トランプのカードを表現するためのパッケージです。
-|hmtrump| パッケージを利用することで、次のような出力を得る
-ことができます。内部で |fontspec| パッケージを読み込んでいるので、
-\LuaLaTeX 専用のパッケージとなります（\XeLaTeX でも動くかも
-しれないけど、動作確認してないので非対応です）。日本語文書中
-でも使用できます。
+\begin{center}
+Repository: \url{https://github.com/Hitomi-San/hmtrump}
+\end{center}
+
+\hrulefill
+\tableofcontents
+\pagebreak
+
+\section{What is this}
+You will be able to describe playing cards using |hmtrump| package.
+\emph{This package needs LuaLaTeX.}
+
+
+\section{How to use?}
+\begin{enumerate}
+\item Install NKD04 Playing Card's Index font
+\item |\usepackage{hmtrump}| in preamble
+\item To describe cards, use |\trump{<rank>}{<suit>}|
+\end{enumerate}
+
+\begin{description}
+\item[<rank>] 1 to 9, T (meaning 10), J, Q, K
+\item[<suit>] S (Spade), H (Hard), D (Diamond), C (Club), x (no suits)
+\end{description}
 
 \vspace*{5pt}
 \rule{0pt}{0pt}\hfil
@@ -69,6 +88,14 @@ be used in skat.\\
 \end{minipage}
 \hfil\rule{0pt}{0pt}
 \vspace*{5pt}
+
+\section{これは何}
+\TeX 文書中で、トランプのカードを表現するためのパッケージです。
+|hmtrump| パッケージを利用することで、次のような出力を得る
+ことができます。内部で |fontspec| パッケージを読み込んでいるので、
+\LuaLaTeX 専用のパッケージとなります（\XeLaTeX でも動くかも
+しれないけど、動作確認してないので非対応です）。日本語文書中
+でも使用できます。
 
 \section{使い方}
 このパッケージで用いているトランプのインデックス用のフォントは、
@@ -215,7 +242,6 @@ NKD04\_Playing\_Cards\_Index を違うフォント名でインストールした
 	文字範囲を変更している場合、24番の文字範囲には新しく文字を追加したり、\textbf{JAchar}
 	として設定しないように注意してください。
 \end{itemize}
-	
 
 \section{TO DO}
 以下実装したいと思っていること:
@@ -224,13 +250,25 @@ NKD04\_Playing\_Cards\_Index を違うフォント名でインストールした
 	を利用するための機構の実装。
 \item |\trump| 命令に不正なスートの指定子が指定された時にエラーを吐くようにする。
 \item もしかしなくても |\joker| 命令で出力されるカード、若干位置が下がってますね……。
-\item {[2019-04-14 ver.~1.0]} |fontspec| パッケージに対する理解が甘くて、フォントを選択するやり方が若干マズい
-	気がするので、修正したい。
+\item {[2019-04-14 ver.~1.0]} |fontspec| パッケージに対する理解が甘くて、
+	フォントを選択するやり方が若干マズい気がするので、修正したい。
 \end{itemize}
 
+\section{License}
+
+\rule{0pt}{0pt}\hfill\includegraphics[height=2\zh]{by-sa.png}\hfill\rule{0pt}{0pt}
+
+このパッケージに含まれる成果物は、クリエイティブ・コモンズ 表示--継承
+ライセンスの元で配布を行う。
+
+This package is licensed under a Creative Commons Attribution-ShareAlike
+4.0 International License.
 
 \section{Change log}
 \begin{description}
+\item[{[2019-05-15 ver.~1.0c]}] ライセンスを明記。
+\item[{[2019-05-14 ver.~1.0b]}] |\@undefined| を使うことを覚えた。
+\item[{[2019-05-14 ver.~1.0b]}] 英文のドキュメントを作成。
 \item[{[2019-04-14 ver.~1.0]}] |hmtrump.sty| に作者を明記。
 \item[{[2019-04-14 ver.~1.0]}] ドキュメントのサンセリフフォントを変更。
 \item[{[2019-04-14 ver.~1.0]}] TO DO を追加。
