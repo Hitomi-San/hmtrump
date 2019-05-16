@@ -3,7 +3,7 @@
 \usepackage{luatexja}
 \ltjdefcharrange{11}{`→,`↑,`↓,`←}
 \ltjsetparameter{jacharrange={-2,-8,+11}}
-\usepackage[jfm_yoko=jlreq,jfm_tate=jlreqv,hiragino-pron]{luatexja-preset}
+\usepackage[jfm_yoko=jlreq,jfm_tate=jlreqv]{luatexja-preset}
 \usepackage{luatexja-otf,luatexja-adjust}
 \newopentypefeature{PKana}{On}{pkna}
 
@@ -11,7 +11,7 @@
 
 \usepackage[math]{iwona}
 \usepackage[euler-digits]{eulervm}
-\usepackage{classico,newpxtext,yhmath}
+\usepackage{tgheros,newpxtext,yhmath}
 \usepackage[scaled]{beramono}
 \DeclareMathAlphabet{\mathtt}{T1}{fvm}{m}{n}
 \DeclareMathAlphabet{\mathsf}{T1}{uop}{m}{n}
@@ -29,7 +29,7 @@
 \newcommand{\hmG}{%
 	\tikz[baseline=(T.base)]
 	\node[fill=black,text=white,outer sep=0pt,inner sep=0.1ex]
-	(T)at(0,0){G};%
+	(T)at(0,0){\textsf{G}};%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%
