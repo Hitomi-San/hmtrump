@@ -41,3 +41,11 @@ hmtrump.pdf がマニュアルです。ご一読ください。
 （スペード、ハート、ダイヤ、クラブ、スートなし）を指定します。
 
 その他提供される命令はマニュアルを参照してください。
+
+## License
+
+このパッケージに含まれる成果物は、クリエイティブ・コモンズ 表示--継承
+ライセンスの元で配布を行う。
+
+This package is licensed under a Creative Commons Attribution-ShareAlike
+4.0 International License.
