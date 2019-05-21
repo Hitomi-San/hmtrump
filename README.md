@@ -49,3 +49,15 @@ hmtrump.pdf がマニュアルです。ご一読ください。
 
 This package is licensed under a Creative Commons Attribution-ShareAlike
 4.0 International License.
+
+NKD04 Playing Card's Index フォントのライセンスは、配布元で示されている通りの
+条件に従う。すなわち、商用私用問わず自由に使用でき、配布元
+[http://hwm3.gyao.ne.jp/shiroi-niwatori/nishiki-teki.htm](http://hwm3.gyao.ne.jp/shiroi-niwatori/nishiki-teki.htm)
+を示せば再配布も可能である。原文は[ここ](./nkd04_playing_cards_index/LICENSE)を参照。
+
+NKD04 Playing Card's Index is licensed under following;
+There is no restriction on using NKD04 Playing Card's Index regardless
+of private or commercial, and it is possible to redistribute this.
+In the case of redistribution, please specify this distribution source
+([http://hwm3.gyao.ne.jp/shiroi-niwatori/nishiki-teki.htm](http://hwm3.gyao.ne.jp/shiroi-niwatori/nishiki-teki.htm)).
+For further information, pleas see [here](./nkd04_playing_cards_index/LICENSE).
