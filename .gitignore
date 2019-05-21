@@ -1,6 +1,6 @@
 tozip.sh
 hmtrump.zip
-./hmtrump
+./hmtrump/*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
