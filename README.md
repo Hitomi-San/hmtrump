@@ -24,7 +24,7 @@ sample.tex is sample file.
 
 トランプのルールを TeX で執筆する人に向けて作ったパッケージです。
 トランプのカードの記号を手軽に出力することができます。
-[hmtrump-sample.tex](hmtrump-samle.sty) がサンプルファイルになっています。
+[hmtrump-sample.tex](hmtrump-samle.tex) がサンプルファイルになっています。
 
 [hmtrump.pdf](hmtrump.pdf) がマニュアルです。ご一読ください。
 
