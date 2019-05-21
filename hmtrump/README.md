@@ -18,15 +18,15 @@ sample.tex is sample file.
 
 ## Manual
 
-[hmtrump.pdf](hmtrump.pdf) is manual, written in Japanese.
+hmtrump.pdf is manual, written in Japanese.
 
 ## 日本語でok
 
 トランプのルールを TeX で執筆する人に向けて作ったパッケージです。
 トランプのカードの記号を手軽に出力することができます。
-[hmtrump-sample.tex](hmtrump-samle.sty) がサンプルファイルになっています。
+sample.tex がサンプルファイルになっています。
 
-[hmtrump.pdf](hmtrump.pdf) がマニュアルです。ご一読ください。
+hmtrump.pdf がマニュアルです。ご一読ください。
 
 ### 使い方
 
