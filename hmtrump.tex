@@ -11,7 +11,7 @@
 \renewcommand{\thefootnote}{\textasteriskcentered\arabic{footnote}}
 \title{|hmtrump| Package}
 \author{ひとみさん}
-\date{v1.1a [2019-06-12]}
+\date{v1.1b [2019-06-13]}
 
 \begin{document}
 \maketitle
@@ -67,7 +67,7 @@ be used in skat.
 \end{minipage}
 \hfil
 \begin{minipage}[t]{.45\textwidth}
-\centerline{imput}\hrule\vspace*{1pt}\hrule
+\centerline{input}\hrule\vspace*{1pt}\hrule
 \scriptsize\ttfamily
 When you play skat, you might remember all |\trumpx| J 
 cards---|\trump| JC, |\trump| JS, |\trump| JH and |\trump| JD
@@ -176,7 +176,8 @@ be used in skat.\\
 \footnote{\texttt{\textbackslash unitrump} 命令で出力される文字は、
 \LuaLaTeX-ja を用いている場合は、\textbf{AJchar} として出力されます。}
 
-その他、|\unitrump|を用いて出力できる文字は、表\ref{unitrump}を参照。
+その他、Unicode のトランプ領域にある文字ならば、すべて出力することができます。
+|\unitrump|を用いて出力できる文字は、表\ref{unitrump}を参照してください。
 
 \begin{table}[tb]
 \caption{\textbackslash unitrump 命令で出力できる文字\label{unitrump}}
@@ -357,6 +358,7 @@ nkd04\_playing\_cards\_index.ttf も含まれている）。
 
 \section{Change log}
 \begin{description}
+\item[{[2019-06-13 ver.~1.1b]}] マニュアルの誤植を修正。
 \item[{[2019-06-12 ver.~1.1a]}] |\unitrump| 命令を追加。
 \item[{[2019-06-12 ver.~1.1a]}] マニュアルの誤植を修正。
 \item[{[2019-05-21 ver.~1.0d]}] フォントのライセンスを明記。
