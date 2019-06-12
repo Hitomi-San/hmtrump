@@ -2,7 +2,8 @@
 \documentclass{jlreq}
 \usepackage{hmtrump}
 \usepackage{shortvrb,bxtexlogo}
-\usepackage[hidelinks,unicode=true]{hyperref}
+\usepackage[colorlinks,unicode=true]{hyperref}
+\hypersetup{linkcolor=blue,urlcolor=teal}
 \usepackage{tgheros,newpxtext,newpxmath}
 \usepackage[scaled]{beramono}
 \MakeShortVerb{\|}
@@ -134,6 +135,8 @@ be used in skat.\\
 |\WHITEJOKER \whitejoker|&\WHITEJOKER \whitejoker\\
 |\REDJOKER \redjoker|&\REDJOKER \redjoker\\
 \hline
+|\unitrump{7H} \unitrump{KS}|&\unitrump{7H} \unitrump{KS}\\
+\hline
 |\trumpblank{愚者}|&\trumpblank{愚者}\\
 |\trumpblank{\hmtcfont PAGE}|&\trumpblank{\hmtcfont PAGE}\\
 \hline
@@ -166,6 +169,52 @@ be used in skat.\\
 応じて、|\renewcommand{\joker}{\whitejoker}| などとすることが
 できます。
 
+\subsection{\textbackslash unitrump 命令}
+|\unitrump{<ランク><スート>}| の書式で、Unicodeのトランプ領域の
+文字を出力します。例えば、|\unitrump{QC}| や |\unitrump{TD}| で、
+\unitrump{QC} や \unitrump{TD} が出力されます。
+\footnote{\texttt{\textbackslash unitrump} 命令で出力される文字は、
+\LuaLaTeX-ja を用いている場合は、\textbf{AJchar} として出力されます。}
+
+その他、|\unitrump|を用いて出力できる文字は、表\ref{unitrump}を参照。
+
+\begin{table}[tb]
+\caption{\textbackslash unitrump 命令で出力できる文字\label{unitrump}}
+\centering
+\begin{tabular}{cc}
+\hline
+引数/argument&出力/output\\
+\hline\hline
+|AS AH AD AC|&\unitrump{AS} \unitrump{AH} \unitrump{AD} \unitrump{AC}\\
+|2S 2H 2D 2C|&\unitrump{2S} \unitrump{2H} \unitrump{2D} \unitrump{2C}\\
+|3S 3H 3D 3C|&\unitrump{3S} \unitrump{3H} \unitrump{3D} \unitrump{3C}\\
+|4S 4H 4D 4C|&\unitrump{4S} \unitrump{4H} \unitrump{4D} \unitrump{4C}\\
+|5S 5H 5D 5C|&\unitrump{5S} \unitrump{5H} \unitrump{5D} \unitrump{5C}\\
+|6S 6H 6D 6C|&\unitrump{6S} \unitrump{6H} \unitrump{6D} \unitrump{6C}\\
+|7S 7H 7D 7C|&\unitrump{7S} \unitrump{7H} \unitrump{7D} \unitrump{7C}\\
+|8S 8H 8D 8C|&\unitrump{8S} \unitrump{8H} \unitrump{8D} \unitrump{8C}\\
+|9S 9H 9D 9C|&\unitrump{9S} \unitrump{9H} \unitrump{9D} \unitrump{9C}\\
+|TS TH TD TC|&\unitrump{TS} \unitrump{TH} \unitrump{TD} \unitrump{TC}\\
+|JS JH JD JC|&\unitrump{JS} \unitrump{JH} \unitrump{JD} \unitrump{JC}\\
+|CS CH CD CC|&\unitrump{CS} \unitrump{CH} \unitrump{CD} \unitrump{CC}\\
+|QS QH QD QC|&\unitrump{QS} \unitrump{QH} \unitrump{QD} \unitrump{QC}\\
+|KS KH KD KC|&\unitrump{KS} \unitrump{KH} \unitrump{KD} \unitrump{KC}\\
+\hline
+|back|&\unitrump{back}\\
+\hline
+|joker joker1 joker2|&\unitrump{joker} \unitrump{joker1} \unitrump{joker2}\\
+\hline
+|0|&\unitrump{0}\\
+|1 2 3 4 5 6 7|&
+	\unitrump{1} \unitrump{2} \unitrump{3} \unitrump{4} \unitrump{5} \unitrump{6} \unitrump{7}\\
+|8 9 10 11 12 13 14|&
+	\unitrump{8} \unitrump{9} \unitrump{10} \unitrump{11} \unitrump{12} \unitrump{13} \unitrump{14}\\
+|15 16 17 18 19 20 21|&
+	\unitrump{15} \unitrump{16} \unitrump{17} \unitrump{18} \unitrump{19} \unitrump{20} \unitrump{21}\\
+\hline
+\end{tabular}
+\end{table}
+
 \subsection{汎用カード命令}
 |\trumpblank{<内容>}| で一般のカードを出力します。カードの中身
 は本文書体で表示されるので、必要があれば適当に |\textsf| や |\textbf|
@@ -189,7 +238,7 @@ NKD04\_Playing\_Cards\_Index を違うフォント名でインストールした
 |\hmtc@trump@font| をインストールしたフォント名に |\renewcommand| で
 定義し直してください。
 
-注意: NKD04 Playing Card's Index Version 0.80 の私用領域を
+\textbf{注意}: NKD04 Playing Card's Index Version 0.80 の私用領域を
 前提としているので、他のフォントを指定した場合はうまく動きません。
 
 \subsection{色}
@@ -227,7 +276,7 @@ NKD04\_Playing\_Cards\_Index を違うフォント名でインストールした
 一部だけの色を変えることも可能です。
 
 \subsection{サイズ}
-|\tizset|命令を使って、出力されるカードのサイズを変更することができます。
+|\tikzset|命令を使って、出力されるカードのサイズを変更することができます。
 
 |\tikzset{hmtcscale/.style={scale=<倍率>}}| と書くことで指定した倍率の
 カードが出力されます。デフォルトでは 0.9 倍になっています。こちらも局所化の影響を
@@ -247,8 +296,6 @@ NKD04\_Playing\_Cards\_Index を違うフォント名でインストールした
 \section{TO DO}
 以下実装したいと思っていること:
 \begin{itemize}
-\item Unicode のトランプの領域の文字（{\fontspec{NKD04_Playing_Cards_Index}\char"1F0D1}など）
-	を利用するための機構の実装。
 \item |\trump| 命令に不正なスートの指定子が指定された時にエラーを吐くようにする。
 \item もしかしなくても |\joker| 命令で出力されるカード、若干位置が下がってますね……。
 \item {[2019-04-14 ver.~1.0]} |fontspec| パッケージに対する理解が甘くて、
@@ -310,6 +357,8 @@ nkd04\_playing\_cards\_index.ttf も含まれている）。
 
 \section{Change log}
 \begin{description}
+\item[{[2019-06-12 ver.~1.1a]}] |\unitrump| 命令を追加。
+\item[{[2019-06-12 ver.~1.1a]}] マニュアルの誤植を修正。
 \item[{[2019-05-21 ver.~1.0d]}] フォントのライセンスを明記。
 \item[{[2019-05-15 ver.~1.0c]}] ライセンスを明記。
 \item[{[2019-05-14 ver.~1.0b]}] |\@undefined| を使うことを覚えた。
