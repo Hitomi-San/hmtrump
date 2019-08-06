@@ -4,7 +4,7 @@
 % Author: Hitomi-san (a.k.a. Carele Smith)
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{hmtrump}[2019-06-13 v1.1b]
+\ProvidesPackage{hmtrump}[2019-08-06 v1.2a]
 \RequirePackage{tikz,xcolor,fontspec}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 定義本体
@@ -38,7 +38,7 @@
 
 %: \hmtcfont => フォント変更
 \newcommand{\hmtc@trump@font}{NKD04_Playing_Cards_Index}
-\newcommand{\hmtcfont}{\fontspec{\hmtc@trump@font}}
+\newfontfamily\hmtcfont{\hmtc@trump@font}
 
 %%: \trump{ランク}{スート}
 \tikzset{hmtcscale/.style={scale=0.9}} % 倍率
